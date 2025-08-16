@@ -42,6 +42,22 @@ const Services = () => {
           </div>
         ))}
       </div>
+
+      {/* 🔹 Social Media Bar */}
+      <div className="social-bar">
+        <a href="#">
+          <i className="fab fa-facebook-f"></i>
+        </a>
+        <a href="#">
+          <i className="fab fa-instagram"></i>
+        </a>
+        <a href="#">
+          <i className="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#">
+          <i className="fab fa-yelp"></i>
+        </a>
+      </div>
     </section>
   );
 };

@@ -1,6 +1,7 @@
+/* Agent Section (Black Background) */
 .agent-section {
   padding: 60px 20px;
-  background-color: #f8f8f8dc;
+  background-color: #000; /* only black here */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,9 +10,8 @@
 
 .agent-container {
   display: flex;
-  background-color: #f8f8f8dc;
   align-items: center;
-  justify-content: center; /* Centers items within container */
+  justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
   gap: 40px;
@@ -19,12 +19,13 @@
 
 .agent-text {
   flex: 1;
+  color: white; /* ✅ make text readable on black */
 }
 
 .agent-subtitle {
   font-size: 0.9rem;
   letter-spacing: 2px;
-  color: #888;
+  color: #ccc; /* lighter for contrast */
   text-align: center;
 }
 
@@ -32,13 +33,14 @@
   font-size: 2rem;
   margin: 10px 0;
   text-align: center;
+  color: #fff; /* white for visibility */
 }
 
 .agent-description {
   margin-bottom: 10px;
   font-size: 15px;
   line-height: 1.6;
-  color: #555;
+  color: #ddd;
   text-align: center;
 }
 
@@ -50,43 +52,46 @@
 
 .btn-light {
   background: transparent;
-  border: 1px solid black;
+  border: 1px solid white;
+  color: white;
   padding: 10px 20px;
   cursor: pointer;
   margin-right: 10px;
 }
 
 .btn-dark {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
 }
 
 .agent-image img {
-  width: 500px; /* adjust size as needed */
-  height: 500px; /* equal width/height for perfect circle */
-  border-radius: 50%; /* makes it a circle */
-  object-fit: cover; /* ensures image fills the circle */
-  border: 5px solid #fff; /* optional white border */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* optional shadow */
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Endless Endorser Scroll */
+/* Endorser Row Separate Section (White BG) */
 .endorser-scroll {
   overflow: hidden;
   white-space: nowrap;
-  margin-top: 50px;
+  margin-top: 0;
   width: 100%;
   display: flex;
-  justify-content: center; /* Centers the scroll track */
+  justify-content: center;
+  background: white;
+  padding: 30px 0;
 }
 
 .endorser-track {
   display: inline-flex;
   gap: 250px;
-  animation: scroll 15s linear infinite;
+  animation: scrollBackAndForth 5s linear infinite alternate;
 }
 
 .endorser-track img {
@@ -94,12 +99,13 @@
   object-fit: contain;
 }
 
-@keyframes scroll {
+/* Back-and-forth animation */
+@keyframes scrollBackAndForth {
   from {
     transform: translateX(0);
   }
   to {
-    transform: translateX(-20%);
+    transform: translateX(-40%); /* adjust how far it slides left */
   }
 }
 

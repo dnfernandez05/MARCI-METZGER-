@@ -67,6 +67,27 @@
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
 
+/* Social Media Bar */
+.social-bar {
+  width: 100%;
+  background: #ffffffb6;
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.social-bar a {
+  color: #070505;
+  font-size: 1.8rem;
+  gap: 50px;
+  transition: color 0.3s ease;
+}
+
+.social-bar a:hover {
+  color: #ffcc00;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .services-container {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./photoGallery.css";
 
 export default function PhotoGallery() {
@@ -13,7 +13,7 @@ export default function PhotoGallery() {
     },
     {
       image:
-        "https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/5570%20Ailanto-14.jpg-SMALL.JPG/:/cr=t:0%25,l:0.05%25,w:99.9%25,h:99.9%25/rs=w:1023,h:681",
+        "https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/5570%20Ailanto-14.jpg-SMALL.JPG/:/rs=w:1023,h:681",
     },
     {
       image:
@@ -29,47 +29,61 @@ export default function PhotoGallery() {
     },
   ];
 
-  const [startIndex, setStartIndex] = useState(0);
-
-  const handleNext = () => {
-    if (startIndex + 2 < featuredProperties.length) {
-      setStartIndex(startIndex + 2);
-    }
-  };
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const handlePrev = () => {
-    if (startIndex - 2 >= 0) {
-      setStartIndex(startIndex - 2);
-    }
+    setSelectedIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + featuredProperties.length) % featuredProperties.length
+    );
   };
+
+  const handleNext = () => {
+    setSelectedIndex(
+      (prevIndex) => (prevIndex + 1) % featuredProperties.length
+    );
+  };
+
+  // 🔹 Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4000); // change every 4 seconds
+
+    return () => clearInterval(interval); // cleanup on unmount
+  }, []);
 
   return (
     <div className="home">
       {/* --- Photo Gallery --- */}
       <section id="photoGallery" className="property-gallery">
-        <h2 className="gallery-title">Featured Properties</h2>
-        <div className="gallery-wrapper">
-          {featuredProperties
-            .slice(startIndex, startIndex + 2)
-            .map((property, index) => (
-              <div key={index} className="property-card">
-                <div className="property-img">
-                  <img src={property.image} alt={`Gallery ${index + 1}`} />
-                </div>
-              </div>
-            ))}
-        </div>
+        <h2 className="gallery-title">Photo Gallery</h2>
 
-        <div className="gallery-controls">
-          <button onClick={handlePrev} disabled={startIndex === 0}>
+        {/* Main Photo with Arrows */}
+        <div className="main-photo">
+          <button className="nav-btn left" onClick={handlePrev}>
             ◀
           </button>
-          <button
-            onClick={handleNext}
-            disabled={startIndex + 2 >= featuredProperties.length}
-          >
+          <img
+            src={featuredProperties[selectedIndex].image}
+            alt={`Property ${selectedIndex + 1}`}
+          />
+          <button className="nav-btn right" onClick={handleNext}>
             ▶
           </button>
+        </div>
+
+        {/* Thumbnail Row */}
+        <div className="thumbnail-row">
+          {featuredProperties.map((property, index) => (
+            <div
+              key={index}
+              className={`thumbnail ${index === selectedIndex ? "active" : ""}`}
+              onClick={() => setSelectedIndex(index)}
+            >
+              <img src={property.image} alt={`Thumb ${index + 1}`} />
+            </div>
+          ))}
         </div>
       </section>
     </div>
