@@ -1,0 +1,260 @@
+.home-container {
+  position: relative;
+  min-height: 100vh;
+  background: url("https://via.placeholder.com/1600x900") center/cover no-repeat;
+}
+
+/* Floating Search Button inside hero */
+.search-icon-wrapper {
+  position: absolute; /* absolute inside hero */
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-icon-wrapper:hover {
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.search-icon {
+  font-size: 32px;
+  color: #000;
+}
+
+/* Modal Overlay */
+.search-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* Modal Content */
+.search-modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Search Form Container */
+.search-form-wrapper {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 350px;
+  width: 100%;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+/* --- HERO SECTION (Parallax) --- */
+.hero-container {
+  height: 100vh;
+  width: 100%;
+  background-image: url("https://img1.wsimg.com/isteam/ip/067a4d42-19e8-46d9-9bed-578bf62dd44e/mtn%20falls%20pond.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center vertically */
+  align-items: center; /* center horizontally */
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-logo img {
+  height: 60px;
+}
+
+.hero-nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-nav a:hover {
+  text-decoration: underline;
+}
+
+.hero-title {
+  font-family: "Cinzel";
+  font-size: 30px;
+  letter-spacing: 3px;
+  font-weight: normal; /* remove bold */
+  margin: 0;
+}
+
+.hero-title1 {
+  font-family: "Cinzel";
+  font-size: 50px;
+  letter-spacing: 3px;
+  font-weight: normal; /* remove bold */
+  margin-top: 10px;
+}
+
+.hero-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  font-size: 0.9rem;
+}
+
+.hero-bottom a {
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+}
+
+.hero-bottom a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .hero-top {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-nav {
+    display: none; /* hide desktop nav on mobile */
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-bottom {
+    gap: 20px;
+    font-size: 0.8rem;
+  }
+}
+
+/* --- Get It Sold Section --- */
+.get-it-sold-section {
+  padding: 60px;
+  background-color: #f8f8f8dc;
+}
+
+.get-it-sold-section .section-title {
+  font-size: 2rem;
+  font-family: "Cinzel";
+  margin-bottom: 40px;
+  text-align: center;
+  color: #333;
+}
+
+.get-it-sold-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.get-it-sold-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sold-box {
+  flex: 0 0 auto;
+  font-family: "Cinzel";
+  max-width: 420px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  scroll-snap-align: start;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.sold-box img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  filter: blur(4px);
+  transition: filter 0.4s ease;
+}
+
+.sold-title {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.4;
+  pointer-events: none;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.3s ease;
+}
+
+.sold-box:hover img {
+  filter: blur(0);
+}
+
+.sold-box:hover .sold-title {
+  opacity: 0;
+}
+
+.sold-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  padding: 15px 20px;
+  text-align: center;
+}

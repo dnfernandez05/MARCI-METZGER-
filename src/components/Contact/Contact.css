@@ -1,0 +1,88 @@
+.contact-section {
+  padding: 4px 20px;
+  background-color: #f8f7f6;
+  color: #333;
+}
+
+.contact-heading {
+  text-align: center;
+  font-size: 30px;
+  font-family: "Cinzel";
+  margin-bottom: 40px;
+  color: #030202;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.contact-form,
+.contact-info {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form h3 {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.send-btn {
+  margin-top: 20px;
+  background-color: #ddd;
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 25px;
+}
+
+.send-btn:hover {
+  background-color: #bbb;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  background-color: #3aa864;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-bottom: 15px;
+}
+
+.whatsapp-btn i {
+  margin-right: 8px;
+}
+
+.business-name {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.phone {
+  color: #a27d7d;
+}
+
+.highlight {
+  color: #a27d7d;
+}
